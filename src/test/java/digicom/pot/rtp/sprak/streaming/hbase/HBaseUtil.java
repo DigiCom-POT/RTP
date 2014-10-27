@@ -1,13 +1,9 @@
 package digicom.pot.rtp.sprak.streaming.hbase;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
-import org.apache.hadoop.hbase.MasterNotRunningException;
-import org.apache.hadoop.hbase.ZooKeeperConnectionException;
-import org.apache.hadoop.hbase.client.HBaseAdmin;
 /*
  * Bolt for dumping stream data into HBase table
  */

@@ -19,6 +19,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import com.google.gson.Gson;
 
 public class SimpleClient {
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) throws ClientProtocolException,
 			IOException {
 		

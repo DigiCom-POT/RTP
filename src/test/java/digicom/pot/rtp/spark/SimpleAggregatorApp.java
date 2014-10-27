@@ -15,6 +15,7 @@ import au.com.bytecode.opencsv.CSVReader;
 
 public class SimpleAggregatorApp {
 	
+		@SuppressWarnings("serial")
 		public static class ParseLine implements Function<String, String[]> {
 			public String[] call(String line) throws Exception {
 				CSVReader reader = new CSVReader(new StringReader(line), '\t');
@@ -23,7 +24,8 @@ public class SimpleAggregatorApp {
 		}
 	
 				
-	  public static void main(String[] args) {
+	  @SuppressWarnings("serial")
+	public static void main(String[] args) {
 		    String tsvFile = "/tmp/0.tsv"; // Should be some file on your system
 		    SparkConf conf = new SparkConf().setAppName("Simple Aggregator Application");
 		    JavaSparkContext sc = new JavaSparkContext(conf);

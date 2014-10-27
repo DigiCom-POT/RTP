@@ -16,7 +16,7 @@ public class CassandraConnector {
 
 	private static PreparedStatement ps;
 	private static PreparedStatement load;
-	private static PreparedStatement update;
+	//private static PreparedStatement update;
 	
 	public void init() {
 		session = client.connect("127.0.0.1");

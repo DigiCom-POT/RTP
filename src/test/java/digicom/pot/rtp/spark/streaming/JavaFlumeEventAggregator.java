@@ -43,6 +43,7 @@ public class JavaFlumeEventAggregator {
 	    ssc.awaitTermination();
 	  }
 
+	@SuppressWarnings("serial")
 	private static JavaPairDStream<String, Integer> processFlumeStream(
 			JavaReceiverInputDStream<SparkFlumeEvent> flumeStream) {
 		
