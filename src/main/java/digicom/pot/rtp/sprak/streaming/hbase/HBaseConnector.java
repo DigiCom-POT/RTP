@@ -1,4 +1,4 @@
-package sagar.sprak.streaming.hbase;
+package digicom.pot.rtp.sprak.streaming.hbase;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;

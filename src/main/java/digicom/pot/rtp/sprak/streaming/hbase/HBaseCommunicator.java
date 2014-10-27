@@ -1,4 +1,4 @@
-package sagar.sprak.streaming.hbase;
+package digicom.pot.rtp.sprak.streaming.hbase;
 
 import java.io.IOException;
 import java.util.ArrayList;

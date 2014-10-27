@@ -1,4 +1,4 @@
-package sagar.spark.example;
+package digicom.pot.rtp.spark;
 
 import java.io.StringReader;
 

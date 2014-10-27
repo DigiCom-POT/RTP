@@ -1,4 +1,4 @@
-package sagar.spark.example;
+package digicom.pot.rtp.spark;
 
 /* SimpleApp.java */
 import org.apache.spark.api.java.*;

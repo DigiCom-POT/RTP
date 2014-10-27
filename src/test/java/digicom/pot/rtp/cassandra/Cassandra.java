@@ -1,4 +1,4 @@
-package sagar.cassandra;
+package digicom.pot.rtp.cassandra;
 
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.Host;

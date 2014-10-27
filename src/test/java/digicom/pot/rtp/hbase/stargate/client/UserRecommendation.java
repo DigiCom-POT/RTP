@@ -1,4 +1,4 @@
-package sagar.hbase.stargate.client;
+package digicom.pot.rtp.hbase.stargate.client;
 
 public class UserRecommendation {
 	private Row[] Row;

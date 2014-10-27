@@ -1,4 +1,4 @@
-package sagar.hbase.stargate.client;
+package digicom.pot.rtp.hbase.stargate.client;
 
 import java.io.BufferedReader;
 import java.io.IOException;

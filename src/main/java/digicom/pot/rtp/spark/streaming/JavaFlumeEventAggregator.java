@@ -1,4 +1,4 @@
-package sagar.spark.streaming.example;
+package digicom.pot.rtp.spark.streaming;
 
 import java.io.StringReader;
 

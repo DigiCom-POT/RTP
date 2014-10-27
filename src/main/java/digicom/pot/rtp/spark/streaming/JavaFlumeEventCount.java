@@ -1,4 +1,4 @@
-package sagar.spark.streaming.example;
+package digicom.pot.rtp.spark.streaming;
 /*
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with

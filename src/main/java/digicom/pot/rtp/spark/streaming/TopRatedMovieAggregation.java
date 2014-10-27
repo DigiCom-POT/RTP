@@ -1,4 +1,4 @@
-package sagar.spark.streaming.example;
+package digicom.pot.rtp.spark.streaming;
 
 import java.io.StringReader;
 import java.util.ArrayList;
@@ -19,8 +19,8 @@ import org.apache.spark.streaming.api.java.JavaStreamingContext;
 import org.apache.spark.streaming.flume.FlumeUtils;
 import org.apache.spark.streaming.flume.SparkFlumeEvent;
 
-import sagar.cassandra.CassandraConnector;
-import sagar.sprak.streaming.hbase.HBaseUtil;
+import digicom.pot.rtp.cassandra.CassandraConnector;
+import digicom.pot.rtp.sprak.streaming.hbase.HBaseUtil;
 import scala.Tuple2;
 import au.com.bytecode.opencsv.CSVReader;
 

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package sagar.spark.streaming.example;
+package digicom.pot.rtp.spark.streaming;
 
 import java.util.Map;
 import java.util.HashMap;
