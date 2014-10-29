@@ -101,25 +101,42 @@ http://localhost:8500/movmovrec/<movieid>
 
 Real Time Personalization
 -------------------------
+To realize the real time scenario we have created a sample shell script (createRunTime.sh) under resources folder to simulate the streaming of data. The shell scripts reads file from one sample ratings file read line by line and writes to log file in some interval.
 
+The Streaming log file is listened by flume and the data is posted to the avro sink. We can also route the data to both to HDFS and avro sink. ( Sample flume conf file is also in git for reference).  
 
+Created a spark streaming sample program to read file every 2 secs from avro sink and run map reduce to aggregate the movies by count. 
+
+For e.g. in movie lens data is coming
+Movie1 Rating1
+Movie2 Rating2
+Movie3 Rating2
+Movie1 Rating2
+Movie1 Rating1
+Movie2 Rating4
+
+After aggregation it will print (num of times the movies has been rated)
+Movie1 3
+Movie2 2
+Movie1 1
+
+Put this data in cassandra (for our use case) or any other no sql or distributed cache.
+
+We can use this data for getting the TopRatedMovies.  
 
 **Spark Streaming + Flume (read the file from flume agent using avro sink)**
-
-
-
-
 
 ***To Start the Avro Sink***
 ```
 flume-ng agent -c /etc/flume/conf -f /etc/flume/conf/flumeavro.conf -n sandbox
 ```
 
+Create the realtime personalization jar and put it in example folder. And submit the job to spark. 
+
 ***To run  Spark Streaming example***
 ```
 ./bin/spark-submit examples/realtimepersonalization-spark-0.0.1-SNAPSHOT-jar-with-dependencies.jar --class digicom.pot.rtp.spark.streaming.TopRatedMovieAggregation 127.0.0.1 41414
 ```
-
 
 NOTE:
 ----
