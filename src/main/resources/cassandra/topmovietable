@@ -1,0 +1,6 @@
+CREATE TABLE test.top_movie (
+    movieid text,
+    time timestamp,
+    viewscnt bigint,
+	PRIMARY KEY (movieid)
+);
