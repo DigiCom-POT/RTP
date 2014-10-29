@@ -108,18 +108,20 @@ The Streaming log file is listened by flume and the data is posted to the avro s
 Created a spark streaming sample program to read file every 2 secs from avro sink and run map reduce to aggregate the movies by count. 
 
 For e.g. in movie lens data is coming
+```
 Movie1 Rating1
 Movie2 Rating2
 Movie3 Rating2
 Movie1 Rating2
 Movie1 Rating1
 Movie2 Rating4
-
+```
 After aggregation it will print (num of times the movies has been rated)
+```
 Movie1 3
 Movie2 2
 Movie1 1
-
+```
 Put this data in cassandra (for our use case) or any other no sql or distributed cache.
 
 We can use this data for getting the TopRatedMovies.  
