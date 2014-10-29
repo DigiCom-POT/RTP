@@ -34,7 +34,7 @@ You can clean up the data using following command
 
 Now copy this file to HDFS from the local machine.
 ```
-#>Hadoop fs –put ratings.csv /app/movielens/input
+#>Hadoop fs â€“put ratings.csv /app/movielens/input
 ```
 
 **User Based Recommendation**
@@ -60,23 +60,23 @@ Once the recommendations are generated. We need to put the output to some NoSQL 
 **For loading the data in Hbase**
 
 We have created three tables using HCAT and HBaseHCatStorageHandler for
-1. MoviesInfo.ddl - ( data from the movie lens folder having movie id , movie name and its genere information )
-2. UserBasedRecommendation.ddl - ( the output from the userbased recommendation algorithm)
-3. ItemBasedRecommenation.ddl - ( the output from the itembased recommendation algorithm)
+- MoviesInfo.ddl - ( data from the movie lens folder having movie id , movie name and its genere information )
+- UserBasedRecommendation.ddl - ( the output from the userbased recommendation algorithm)
+- ItemBasedRecommenation.ddl - ( the output from the itembased recommendation algorithm)
 
 The hcat scripts are available under resources/hact folder. Execute the script in sandbox.
 ```
-hcat –f MoviesInfo.ddl
-hcat –f UserBasedRecommendation.ddl
-hcat –f ItemBasedRecommenation.ddl
+hcat â€“f MoviesInfo.ddl
+hcat â€“f UserBasedRecommendation.ddl
+hcat â€“f ItemBasedRecommenation.ddl
 ```
 
 Once the table is created you can bulk load the data to Hbase table using PIG scripts.
 Pig scripts are available in resources\pig folder.
 ```
-pig –x local loadMoviesInfo.txt
-pig –x local loadUserRecommendation.txt
-pig –x local loadSimiliarMovies.txt
+pig â€“x local loadMoviesInfo.txt
+pig â€“x local loadUserRecommendation.txt
+pig â€“x local loadSimiliarMovies.txt
 
 ```
 
