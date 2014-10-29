@@ -1,0 +1,4 @@
+records = LOAD 'hdfs://sandbox.hortonworks.com/apps/movielens/output/itemitemCO/part-r-00000' AS (user:chararray,value:chararray,counter:int);
+grpd = GROUP records BY user;
+outp = FOREACH grpd GENERATE $0 as movie_id, $1 as similar_movie;
+STORE outp  INTO 'movmovrec' USING org.apache.pig.backend.hadoop.hbase.HBaseStorage ('d:recommendation');

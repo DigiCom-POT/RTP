@@ -1,0 +1,2 @@
+inpt = LOAD 'hdfs://sandbox.hortonworks.com/apps/movielens/input/movies.csv' USING PigStorage(',') AS (movie_id:chararray, movie_name:chararray, genre:chararray);
+STORE inpt INTO 'moviesinfo' USING org.apache.pig.backend.hadoop.hbase.HBaseStorage ('d:movie_name,d:genre');

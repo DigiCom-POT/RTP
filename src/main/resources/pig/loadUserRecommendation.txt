@@ -1,0 +1,2 @@
+inpt = LOAD 'hdfs://sandbox.hortonworks.com/apps/movielens/output/part-r-00000' USING PigStorage('\t') AS (user_id:chararray, recommendation:chararray);
+STORE inpt INTO 'moviesrecommend' USING org.apache.pig.backend.hadoop.hbase.HBaseStorage ('d:recommendation');
