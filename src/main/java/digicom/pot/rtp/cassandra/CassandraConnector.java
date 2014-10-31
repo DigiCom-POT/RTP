@@ -15,12 +15,14 @@ public class CassandraConnector {
 	static CassandraConnector client = new CassandraConnector();
 
 	private static PreparedStatement ps;
+	private static PreparedStatement pbs;
 	private static PreparedStatement load;
 	//private static PreparedStatement update;
 	
 	public void init() {
 		session = client.connect("127.0.0.1");
 		ps = session.prepare("INSERT INTO top_movie (movieid, viewscnt, time) VALUES (?, ?, dateof(now()))");
+		pbs = session.prepare("INSERT INTO top_movie_new (movieid, viewscnt, time) VALUES (?, ?, dateof(now()))");
 		load = session.prepare("select viewscnt from top_movie where movieid=?");
 		String cqlStatement = "SELECT * FROM test";
 		for (Row row : session.execute(cqlStatement)) {
@@ -35,6 +37,7 @@ public class CassandraConnector {
 			if (null == session) {
 				session = client.connect("127.0.0.1");
 				ps = session.prepare("INSERT INTO top_movie (movieid, viewscnt, time) VALUES (?, ?, dateof(now()))");
+				pbs = session.prepare("INSERT INTO top_movie_new (movieid, viewscnt, time) VALUES (?, ?, dateof(now()))");
 				load = session.prepare("select viewscnt from top_movie where movieid=?");
 			}
 			long existingcount = getExistingCount(movieid);
@@ -89,4 +92,32 @@ public class CassandraConnector {
 		return cluster.connect("test");
 	}
 
+	
+	public static void persistnew(String movieid, Integer count) {
+
+		try {
+			if (null == session) {
+				session = client.connect("127.0.0.1");
+				ps = session.prepare("INSERT INTO top_movie (movieid, viewscnt, time) VALUES (?, ?, dateof(now()))");
+				pbs = session.prepare("INSERT INTO top_movie_new (movieid, viewscnt, time) VALUES (?, ?, dateof(now()))");
+				load = session.prepare("select viewscnt from top_movie where movieid=?");
+			}
+			long existingcount = getExistingCount(movieid);
+			long l = count + existingcount;
+			
+			Long viewscnt = new Long(l);
+			BoundStatement bind = pbs.bind(movieid, viewscnt);
+			session.execute(bind);
+			
+			if(existingcount != 0) {
+				System.out.println("Inserted the data for " + movieid +  "with value : "+l);
+			}
+			
+
+		} catch (Exception e) {
+			System.out.println(" Error while persisting the data in cassandra "
+					+ e);
+			e.printStackTrace();
+		}
+	}
 }
