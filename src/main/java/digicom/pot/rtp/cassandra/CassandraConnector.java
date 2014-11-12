@@ -24,10 +24,10 @@ public class CassandraConnector {
 		ps = session.prepare("INSERT INTO top_movie (movieid, viewscnt, time) VALUES (?, ?, dateof(now()))");
 		pbs = session.prepare("INSERT INTO top_movie_new (movieid, viewscnt, time) VALUES (?, ?, dateof(now()))");
 		load = session.prepare("select viewscnt from top_movie where movieid=?");
-		String cqlStatement = "SELECT * FROM test";
-		for (Row row : session.execute(cqlStatement)) {
+		//String cqlStatement = "SELECT * FROM test";
+		/*for (Row row : session.execute(cqlStatement)) {
 			System.out.println(row.toString());
-		}
+		}*/
 		// client.close();
 	}
 

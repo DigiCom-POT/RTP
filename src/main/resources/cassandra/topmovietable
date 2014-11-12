@@ -1,4 +1,13 @@
+create keyspace test with replication = { 'class':'SimpleStrategy', 'replication_factor':1 };
+  
 CREATE TABLE test.top_movie (
+    movieid text,
+    time timestamp,
+    viewscnt bigint,
+	PRIMARY KEY (movieid)
+);
+
+CREATE TABLE test.top_movie_new (
     movieid text,
     time timestamp,
     viewscnt bigint,

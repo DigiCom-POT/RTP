@@ -23,7 +23,7 @@ public class TopRatedMovieAggregation {
 	public static void main(String[] args) {
 		
 		// Should change the input and out medium to hdfs. 
-		 String tsvFile = "/tmp/movielens/0.tsv"; // Should be some file on your system
+		 String tsvFile = "/home/sapepot/dataset/ratings.csv"; // Should be some file on your system
 		 SparkConf conf = new SparkConf().setAppName("Batch Ratings Counts");
 		 JavaSparkContext sc = new JavaSparkContext(conf);
 		 JavaRDD<String> ratingsData = sc.textFile(tsvFile);
