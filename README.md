@@ -155,4 +155,4 @@ Sources:
 -------
 * Hortworks Tutorial
 * Spark Streaming examples
-* [WIKI](https://github.com/DigiCom-POT/RTP/Wiki)
+* [wiki](https://github.com/DigiCom-POT/RTP/wiki)
