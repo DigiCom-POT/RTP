@@ -135,9 +135,14 @@ flume-ng agent -c /etc/flume/conf -f /etc/flume/conf/flumeavro.conf -n sandbox
 
 Create the realtime personalization jar and put it in example folder. And submit the job to spark. 
 
-***To run  Spark Streaming example***
+***To run  Spark Streaming ***
 ```
-./bin/spark-submit examples/realtimepersonalization-spark-0.0.1-SNAPSHOT-jar-with-dependencies.jar --class digicom.pot.rtp.spark.streaming.TopRatedMovieAggregation 127.0.0.1 41414
+./bin/spark-submit examples/digicom-rtp-0.0.1-SNAPSHOT-jar-with-dependencies.jar --class digicom.pot.rtp.spark.streaming.TopRatedMovieAggregation 127.0.0.1 41414
+```
+
+***To Run Spark Batch***
+```
+./bin/spark-submit examples/digicom-rtp-0.0.1-SNAPSHOT-jar-with-dependencies.jar --class digicom.pot.batch.spark.TopRatedMovieAggregation
 ```
 
 NOTE:
@@ -150,3 +155,4 @@ Sources:
 -------
 * Hortworks Tutorial
 * Spark Streaming examples
+* [WIKI](https://github.com/DigiCom-POT/RTP/Wiki)
