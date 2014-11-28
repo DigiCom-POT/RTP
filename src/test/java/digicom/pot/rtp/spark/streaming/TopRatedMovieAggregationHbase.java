@@ -142,6 +142,7 @@ public class TopRatedMovieAggregationHbase {
 	  
 	  private static void persistToCassandra(JavaPairDStream<String, Integer> rdd) {
 		  System.out.println("Trying to persisting to Cassandra");
+		  final CassandraConnector cassandraConnector = new CassandraConnector();
 			try {
 				rdd.foreach(new Function2<JavaPairRDD<String,Integer>, Time, Void>() {
 					public Void call(JavaPairRDD<String, Integer> value, Time time)
@@ -150,7 +151,7 @@ public class TopRatedMovieAggregationHbase {
 							public void call(Tuple2<String, Integer> tuple)
 									throws Exception {
 								   // System.out.println("Counter1 :" + tuple._1() + "," + tuple._2());
-								    CassandraConnector.persist(tuple._1(), tuple._2());
+								    cassandraConnector.persistRealTimeRatings(tuple._1(), tuple._2());
 							}
 						});
 						return null;
