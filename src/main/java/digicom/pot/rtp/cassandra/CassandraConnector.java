@@ -1,5 +1,7 @@
 package digicom.pot.rtp.cassandra;
 
+import java.io.Serializable;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,7 +14,8 @@ import com.datastax.driver.core.ResultSet;
 import com.datastax.driver.core.Row;
 import com.datastax.driver.core.Session;
 
-public class CassandraConnector {
+public class CassandraConnector implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private static final String KEYSPACE = "test";
 	private static Cluster cluster;
 	private static Session session;

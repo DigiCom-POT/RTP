@@ -1,5 +1,6 @@
 package digicom.pot.batch.spark;
 
+import java.io.Serializable;
 import java.io.StringReader;
 
 import org.apache.spark.SparkConf;
@@ -17,8 +18,9 @@ import scala.Tuple2;
 import au.com.bytecode.opencsv.CSVReader;
 import digicom.pot.rtp.cassandra.CassandraConnector;
 
-public class TopRatedMovieAggregation {
+public class TopRatedMovieAggregation implements Serializable{
 
+	private static final long serialVersionUID = 1L;
 	CassandraConnector cassandraConnector = new CassandraConnector();
 	Logger logger = LoggerFactory
 			.getLogger(TopRatedMovieAggregation.class);

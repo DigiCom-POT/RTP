@@ -23,8 +23,9 @@ import scala.Tuple2;
 import au.com.bytecode.opencsv.CSVReader;
 import digicom.pot.rtp.cassandra.CassandraConnector;
 
-public class TopRatedMovieAggregation {
+public class TopRatedMovieAggregation implements java.io.Serializable{
 
+	private static final long serialVersionUID = 1L;
 	private static final long POLLING_TIME_MS = 2000;
 	Logger logger = LoggerFactory.getLogger(TopRatedMovieAggregation.class);
 
@@ -70,7 +71,6 @@ public class TopRatedMovieAggregation {
 	 * 
 	 * @param rdd
 	 */
-	@SuppressWarnings("serial")
 	private void persistToCassandra(JavaPairDStream<String, Integer> rdd) {
 		logger.info("Persisting data to Cassandra");
 		final CassandraConnector cassandraConnector = new CassandraConnector();
@@ -99,7 +99,6 @@ public class TopRatedMovieAggregation {
 	 * @param flumeStream
 	 * @return
 	 */
-	@SuppressWarnings("serial")
 	private JavaPairDStream<String, Integer> processFlumeStream(
 			JavaReceiverInputDStream<SparkFlumeEvent> flumeStream) {
 
@@ -118,7 +117,6 @@ public class TopRatedMovieAggregation {
 				});
 		JavaPairDStream<String, Integer> rdd = csvData.mapToPair(
 				new PairFunction<String[], String, Integer>() {
-					@SuppressWarnings("unchecked")
 					public Tuple2<String, Integer> call(String[] x) {
 						return new Tuple2(x[1], 1);
 					}
