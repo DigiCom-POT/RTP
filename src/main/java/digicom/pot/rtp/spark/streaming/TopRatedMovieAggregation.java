@@ -32,6 +32,11 @@ public class TopRatedMovieAggregation implements java.io.Serializable{
 	private TopRatedMovieAggregation() {
 	}
 
+	/**
+	 * Take the Avro flume host and port 
+	 * where flume sinks the data
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		if (args.length < 2) {
 			System.err.println("Usage: JavaFlumeEventCount <host> <port>");

@@ -36,6 +36,12 @@ public class TopRatedMovieAggregation implements Serializable{
 		topmovAggregation.processBatchRatings(tsvFile, topmovAggregation);
 	}
 
+	/**
+	 * takes the set of RDD and 
+	 * calls map reduce in memory to aggregate the result. 
+	 * @param tsvFile
+	 * @param topmovAggregation
+	 */
 	@SuppressWarnings("serial")
 	private void processBatchRatings(String tsvFile,
 			TopRatedMovieAggregation topmovAggregation) {
