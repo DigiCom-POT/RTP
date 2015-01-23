@@ -50,7 +50,7 @@ mahout recommenditembased -s SIMILARITY_LOGLIKELIHOOD -i /apps/movielens/input/r
 Run the script under resources/script folder - runitembasedrecommend.sh. 
 This will create the output recommendation file in the HDFS file system.  
 ```
-hadoop jar mahout-core-0.9.0.2.1.1.0-385-job.jar org.apache.mahout.cf.taste.hadoop.similarity.item.ItemSimilarityJob --input -i /apps/movielens/input/ratings.csv --ooutput /apps/movielens/output --similarityClassname SIMILARITY_LOGLIKELIHOOD --maxSimilaritiesPerItem 5
+hadoop jar mahout-core-0.9.0.2.1.1.0-385-job.jar org.apache.mahout.cf.taste.hadoop.similarity.item.ItemSimilarityJob --input -i /apps/movielens/input/ratings.csv --output /apps/movielens/output --similarityClassname SIMILARITY_LOGLIKELIHOOD --maxSimilaritiesPerItem 5
 ```
 
 For our use case we have used simple algorithms like SIMILARITY_LOGLOLELIHOOD to derive the recommendation. Mahout comes with lots of algorithms which can be applied based on the specific requirements. You can also write your own recommendation algorithm for specific use cases.
